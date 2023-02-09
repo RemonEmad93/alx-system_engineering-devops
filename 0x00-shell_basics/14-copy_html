@@ -1,9 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-for file in *.html
-do
-	if [ ! -f ../$file ] || [ $file -nt ../$file ]; then
-		      cp $file ../
-		        fi
-		done
-
+find . -type f -name "*.html" -exec sh -c '[[ ! -f ../"$(basename "$1")" || "$1" -nt ../"$(basename "$1")" ]] && cp "$1" ../' sh {} \;
