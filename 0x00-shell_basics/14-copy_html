@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -type f -name "*.html" -newer ../"{}" -exec cp -- "{}" ../ \
+find . -name "*.html" -type f -exec sh -c 'cmp -s "$1" "../$1" || cp -p "$1" "../$1"' sh {} \;
