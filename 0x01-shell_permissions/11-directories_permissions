@@ -1,2 +1,2 @@
 #!/bin/bash
-for dir in */; do chmod 755 "$dir"; done
+chmod -R +x */
