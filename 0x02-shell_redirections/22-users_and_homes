@@ -1,2 +1,25 @@
 #!/bin/bash
-sort -t: -k1,1 /etc/passwd | awk -F: '{print $1, $6}'
+
+
+
+# Read the content of /etc/passwd file into an array
+
+declare -a users=($(cat /etc/passwd | cut -d ":" -f 1,6))
+
+
+
+# Sort the array by users
+
+IFS=$'\n' sorted_users=($(sort <<< "${users[*]}"))
+
+
+
+# Loop through the sorted array and print each user and their home directory
+
+for i in "${sorted_users[@]}"; do
+
+	  echo $i | awk -F: '{printf "User: %s\tHome Directory: %s\n", $1, $2}'
+
+  done
+
+
