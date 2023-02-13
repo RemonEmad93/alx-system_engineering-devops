@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -t --time-style=full-iso | head -n 11 | tail -n 10
+ls -lt --sort=time --time-style=full-iso | head -n 11 | tail -n 10
