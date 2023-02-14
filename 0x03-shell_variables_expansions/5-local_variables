@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Local Variables:" && set | grep "^[a-zA-Z_]" && echo "Environment Variables:" && env | sort && echo "Functions:" && declare -F
+(declare -p;declare -F;declare -x) | sort
